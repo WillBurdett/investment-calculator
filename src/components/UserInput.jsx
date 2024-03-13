@@ -29,6 +29,8 @@ export default function UserInput({values, handleValueChange}) {
         </form>
       </div>
 
+      <br />
+
       <div className="input-group">
         <form >
           <label>Expected Return</label>
