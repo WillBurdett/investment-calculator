@@ -23,8 +23,6 @@ function App() {
 
   const results = calculateInvestmentResults({ ...values });
 
-  console.log(results);
-
   return (
     <>
       <Header />
