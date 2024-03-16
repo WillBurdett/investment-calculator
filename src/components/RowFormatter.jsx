@@ -1,18 +1,22 @@
 import { formatter } from "../util/investment";
 
 export default function RowFormatter({ values }) {
-  let yearNumber = values.year  
-  let totalInvestmentValue = formatter.format(values.valueEndOfYear); 
-  let annualInterestEarned = formatter.format(values.interest); 
-  let lifetimeInterestEarned = formatter.format(values.valueEndOfYear - values.totalInvestment); 
-  let lifetimeIncomeInvested = formatter.format(values.totalInvestment)
   return (
     <tr>
-      <td>{yearNumber}</td>
-      <td>{totalInvestmentValue}</td>
-      <td>{annualInterestEarned}</td>
-      <td>{lifetimeInterestEarned}</td>
-      <td>{lifetimeIncomeInvested}</td>
+      {/* Year number */}
+      <td>{values.year}</td> 
+      
+      {/* Total investment value */}
+      <td>{formatter.format(values.valueEndOfYear)}</td>
+
+      {/* Annual interest earned */}
+      <td>{formatter.format(values.interest)}</td>
+
+      {/* Lifetime interest earned */}
+      <td>{formatter.format(values.valueEndOfYear - values.totalInvestment)}</td>
+
+      {/* Lifetime cash invested */}
+      <td>{formatter.format(values.totalInvestment)}</td>
     </tr>
   );
 }
