@@ -1,77 +1,54 @@
 export default function UserInput({ values, handleValueChange }) {
-  function handleInitialInvestment(event) {
+  function handleChange(attribute, value) {
     handleValueChange(
-      "initialInvestment",
-      event.target.value === "" ? "" : parseInt(event.target.value)
-    );
-  }
-
-  function handleAnnualInvestment(event) {
-    handleValueChange(
-      "annualInvestment",
-      event.target.value === "" ? "" : parseInt(event.target.value)
-    );
-  }
-
-  function handleExpectedReturn(event) {
-    handleValueChange(
-      "expectedReturn",
-      event.target.value === "" ? "" : parseInt(event.target.value)
-    );
-  }
-
-  function handleDuration(event) {
-    handleValueChange(
-      "duration",
-      event.target.value === "" ? "" : parseInt(event.target.value)
+      attribute,
+      value === "" ? "" : parseInt(value)
     );
   }
 
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
-        <form>
+        <p>
           <label>Initial Investment</label>
           <input
             type="number"
             required
             value={values.initialInvestment}
-            onChange={handleInitialInvestment}
+            onChange={(event) => handleChange('initialInvestment', event.target.value)}
           />
-        </form>
-        <form>
+        </p>
+        <p>
           <label>Annual Investment</label>
           <input
             type="number"
             required
             value={values.annualInvestment}
-            onChange={handleAnnualInvestment}
+            onChange={(event) => handleChange('annualInvestment', event.target.value)}
           />
-        </form>
+        </p>
       </div>
 
-      <br />
-
       <div className="input-group">
-        <form>
+        <p>
           <label>Expected Return</label>
           <input
             type="number"
             required
             value={values.expectedReturn}
-            onChange={handleExpectedReturn}
+            onChange={(event) => handleChange('expectedReturn', event.target.value)}
           />
-        </form>
-        <form>
+        </p>
+        <p>
           <label>Duration</label>
           <input
             type="number"
             required
             value={values.duration}
-            onChange={handleDuration}
+            onChange={(event) => handleChange('duration', event.target.value)}
           />
-        </form>
+        </p>
       </div>
-    </div>
+    </section>
   );
 }
